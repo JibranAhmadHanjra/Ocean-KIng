@@ -11,9 +11,9 @@ public class LevelTime
 }
 public class GameController : MonoBehaviour
 {
-    public GameController fish1;
-    public GameController fish2;
-    public GameController fish3;
+    public GameObject fish1;
+    public GameObject fish2;
+    public GameObject fish3;
 
 
 
@@ -32,7 +32,12 @@ public class GameController : MonoBehaviour
 
 
 
+    public int fishes
+    {
+        set => PlayerPrefs.SetInt("fishes",value);
+        get => PlayerPrefs.GetInt("fishes",0);
 
+    }
 
 
 
@@ -40,7 +45,7 @@ public class GameController : MonoBehaviour
     //=========================Asset===================================//
     // public LevelTime[] timeClass;
     // public Text timeTxT;
-    // public static GameController instance;
+     public static GameController instance;
     // public GameObject player;
     // public bool isHitting=false;
     // public GameObject imageFade;
@@ -53,10 +58,10 @@ public class GameController : MonoBehaviour
     // public GameObject S3;
     //// public Text countDown;
 
-    // public GameObject PrefabPos;
-    // public GameObject ScorePrefab10;
-    // public GameObject ScorePrefab15;
-    // public GameObject ScorePrefab20;
+     public GameObject PrefabPos;
+     public GameObject ScorePrefab10;
+     public GameObject ScorePrefab15;
+     public GameObject ScorePrefab20;
     // //public GameObject WinParticles;
 
     ////[Header("==============UI")]
@@ -94,26 +99,26 @@ public class GameController : MonoBehaviour
     //}
 
 
-    //public bool gameStarted = false;
+    public bool gameStarted = false;
 
 
 
-    //private void Awake()
-    //{
-    //    instance = this;
-    //    EnableLevel();
-    //    gameStarted = true;
+    private void Awake()
+    {
+        instance = this;
+      //  EnableLevel();
+        gameStarted = true;
 
 
 
-        
-    //}
+
+    }
     //private void Start()
     //{
     //    Time.timeScale = 0;
     //}
 
-   
+
 
     //void OnSkipLevel()
     //{
@@ -122,7 +127,7 @@ public class GameController : MonoBehaviour
 
     //}
 
-  
+
 
 
     //void EnableLevel()
@@ -157,9 +162,9 @@ public class GameController : MonoBehaviour
     //   // this.gameObject.GetComponent<RemainingTimer>().enabled = false;
     //   /* GameController.instance.*/startGame = false;
     //    levelNo++;
-       
+
     //    StartCoroutine(ShowCompleteUI());
-        
+
     //    gameStarted = false;
     //}
     //IEnumerator ShowCompleteUI()
@@ -192,13 +197,13 @@ public class GameController : MonoBehaviour
     //    StartCoroutine(ShowFailUI());
     //  //  player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     //    gameStarted = false;
-        
-        
+
+
     //}
 
     //IEnumerator ShowFailUI()
     //{
-      
+
     //    yield return new WaitForSeconds(3f);
     //    //particalcanvas.gameObject.SetActive(false);
     //    FailPanel.SetActive(true);
@@ -235,45 +240,47 @@ public class GameController : MonoBehaviour
     //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     //}
 
-    
 
-    
+
+
 
     //public void Next()
     //{
     //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
+
     //}
 
 
-    
-   // ==============================Scoring Animation========================//
-    //public void AddScore(int amount)
-    //{
-       
-    //  //GameObject scoreObject =  Instantiate(ScorePrefab);
-    //  //  scoreObject.transform.SetParent(PrefabPos.transform);
-    //  // scoreObject.transform.localPosition = Vector3.zero;
-    //    if (amount==10)
-    //    {
-    //        GameObject scoreObject = Instantiate(//ScorePrefab10);
-    //      //  scoreObject.transform.SetParent(//PrefabPos.transform);
-    //      //  scoreObject.transform.localPosition = Vector3.zero;
-    //    }  if (amount==15)
-    //    {
-    //        GameObject scoreObject = Instantiate(ScorePrefab15);
-    //        scoreObject.transform.SetParent(PrefabPos.transform);
-    //        scoreObject.transform.localPosition = Vector3.zero;
-    //    }  if (amount==20)
-    //    {
-    //        GameObject scoreObject = Instantiate(ScorePrefab20);
-    //        scoreObject.transform.SetParent(PrefabPos.transform);
-    //        scoreObject.transform.localPosition = Vector3.zero;
-           
-    //    }            //scoreObject.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
-    //              //   Debug.Log("Score added: " + amount);
-       
-    //}
+
+    // ==============================Scoring Animation========================//
+    public void AddScore(int amount)
+    {
+
+        //GameObject scoreObject = Instantiate(ScorePrefab);
+        //scoreObject.transform.SetParent(PrefabPos.transform);
+        //scoreObject.transform.localPosition = Vector3.zero;
+        if (amount == 10)
+        {
+            GameObject scoreObject = Instantiate(ScorePrefab10);
+            scoreObject.transform.SetParent(PrefabPos.transform);
+            scoreObject.transform.localPosition = Vector3.zero;
+        }
+        if (amount == 15)
+        {
+            GameObject scoreObject = Instantiate(ScorePrefab15);
+            scoreObject.transform.SetParent(PrefabPos.transform);
+            scoreObject.transform.localPosition = Vector3.zero;
+        }
+        if (amount == 20)
+        {
+            GameObject scoreObject = Instantiate(ScorePrefab20);
+            scoreObject.transform.SetParent(PrefabPos.transform);
+            scoreObject.transform.localPosition = Vector3.zero;
+
+        }            //scoreObject.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
+                     //   Debug.Log("Score added: " + amount);
+
+    }
 
 
 }

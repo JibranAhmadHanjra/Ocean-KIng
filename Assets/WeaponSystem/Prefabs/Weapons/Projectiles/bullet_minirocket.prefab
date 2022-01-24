@@ -4856,6 +4856,7 @@ GameObject:
   - component: {fileID: 11400002}
   - component: {fileID: 8200000}
   - component: {fileID: 11421750}
+  - component: {fileID: 1746768453944937404}
   m_Layer: 8
   m_Name: bullet_minirocket
   m_TagString: Bullet
@@ -4997,7 +4998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6590ee8ee91865a489cca49961c0a4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Effect: {fileID: 100000, guid: 0c05761968e175f4ea049c7859dd3481, type: 3}
+  Effect: {fileID: 0}
   Owner: {fileID: 0}
   Damage: 20
   objectPool: {fileID: 0}
@@ -5121,6 +5122,20 @@ MonoBehaviour:
   Active: 0
   Prefab: {fileID: 0}
   LifeTime: 0
+--- !u!114 &1746768453944937404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee673cdea9818e04a9f9936bae51aa93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoint: {fileID: 4259618259715125900, guid: 72e6f08f82281ef469f548a1a7aa46a0,
+    type: 3}
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0

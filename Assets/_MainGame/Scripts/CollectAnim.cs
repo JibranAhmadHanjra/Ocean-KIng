@@ -15,7 +15,12 @@ public class CollectAnim : MonoBehaviour
     public bool isCanvasCamera;
     public int NoToAddInPlayerPref = 50;
     List<GameObject> prefabsReference;
-
+    public static CollectAnim instance;
+    private void Awake()
+    {
+        instance = this;
+        
+    }
     public void ShowAnim()
     {
         prefabsReference = new List<GameObject>();
@@ -39,7 +44,7 @@ public class CollectAnim : MonoBehaviour
                 StartCoroutine(MoveRoutine3DCanvas(prefabsReference[i].transform, Random.Range(0f, 0.2f), timeToAnimate));
         }
 
-        Invoke("AddCoinsInPlayerPref",timeToAnimate);
+      //  Invoke("AddCoinsInPlayerPref",timeToAnimate);
     }
 
     //void AddCoinsInPlayerPref()
