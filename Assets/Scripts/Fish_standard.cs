@@ -18,7 +18,7 @@ public class Fish_standard : MonoBehaviour
     void FishForward()
     {
         transform.Translate(1 * Time.deltaTime, 0, 0);
-        //FishRot();
+        FishRot();
     }
     void FishRot()
     {
