@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleCollectable : MonoBehaviour
 {
 
-    //public List<GameObject> obstacles = new List<GameObject>();
+    public List<GameObject> obstacles = new List<GameObject>();
 
     void Start()
     {
