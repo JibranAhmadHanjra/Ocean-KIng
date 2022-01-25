@@ -32,8 +32,8 @@ public class MouseLook : MonoBehaviour
 		public RotationAxes axes = RotationAxes.MouseXAndY;
 		public float sensitivityX = 15F;
 		public float sensitivityY = 15F;
-		public float minimumX = -360F;
-		public float maximumX = 360F;
+		public float minimumX = -3F;
+		public float maximumX = 3F;
   //      public float minimumX = -30F;
 		//public float maximumX = 30F;
 		public float minimumY = -60F;
@@ -54,10 +54,22 @@ public class MouseLook : MonoBehaviour
             }
  else
             if (axes == RotationAxes.MouseX)
-            {
-                transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityX, 0);
-               
-            }
+			{
+                minimumX = Input.GetAxis("Mouse X") * sensitivityX;
+                if (transform.rotation.y <= 0.5)
+                {
+					transform.Rotate(0, minimumX, 0);
+
+				}
+                if (transform.rotation.y >= -0.5)
+                {
+					transform.Rotate(0, minimumX, 0);
+				}
+				
+				//Quaternion.Euler(0, 30, 0);
+				//transform.Rotate(0, minimumX, 0);
+
+			}
             else
             {
                 rotationY += Input.GetAxis("Mouse Y") * sensitivityY;

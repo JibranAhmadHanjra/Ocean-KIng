@@ -34,8 +34,11 @@ public class Player : MonoBehaviour
         {
             x = Input.GetAxis("Mouse X") * MouseSensitivity;
             Debug.Log("x = " + x);
-            if(transform.rotation.y <= .5 && transform.rotation.y >= -.5)
+           // Vector3 rotationVector = new Vector3(0, 30, 0);
+           //Quaternion rotation = Quaternion.Euler(rotationVector);
+            if (transform.rotation.y <= 0.5&& transform.rotation.y >= -0.5)
             transform.Rotate(0, x, 0);
+           
         }
         //Actual Camera Rig Transformations
         //Quaternion QT = Quaternion.Euler(0, -_LocalRotation.y, 0);
