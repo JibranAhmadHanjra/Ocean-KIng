@@ -61,6 +61,10 @@ public class MouseLook : MonoBehaviour
 					transform.Rotate(0, minimumX, 0);
 
 				}
+				else
+                {
+
+                }
                 if (transform.rotation.y >= -0.5)
                 {
 					transform.Rotate(0, minimumX, 0);
