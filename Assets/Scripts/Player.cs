@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    float rotationX = 0;
+    float rotationY = 0;
     protected Vector3 _LocalRotation;
     protected float _CameraDistance = 10f;
 
@@ -19,7 +21,7 @@ public class Player : MonoBehaviour
         _setRots();
     }
     float x;
-    
+    float y;
     void LateUpdate()
     {
         if (Input.GetMouseButtonDown(0))
@@ -32,12 +34,29 @@ public class Player : MonoBehaviour
         }
         if (_temp)
         {
-            x = Input.GetAxis("Mouse X") * MouseSensitivity;
+           
+            // you might also have some rotation speed variable
+           
+                //rotationX += Input.GetAxis("Mouse X") * Time.deltaTime;
+                //rotationX = Mathf.Clamp(rotationX, 60, -60);
+                //rotationY += Input.GetAxis("Mouse X") * Time.deltaTime;
+                //transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
+                x = Input.GetAxis("Mouse X") * MouseSensitivity;
+          //  transform.eulerAngles = new Vector3(0f, 180f, 0f);
             Debug.Log("x = " + x);
+            //y = Mathf.Clamp(y,60,-60);
            // Vector3 rotationVector = new Vector3(0, 30, 0);
            //Quaternion rotation = Quaternion.Euler(rotationVector);
-            if (transform.rotation.y <= 0.5&& transform.rotation.y >= -0.5)
-            transform.Rotate(0, x, 0);
+           if (transform.rotation.y <= 0.5&& transform.rotation.y >= -0.5)
+          //      if (y<=0)
+          //      {
+          //          y -= 1;
+          //      }
+          //      if (y >= 0)
+          //      {
+          //      y += 1;
+          //      }
+          transform.Rotate(0, x, 0);
            
         }
         //Actual Camera Rig Transformations
